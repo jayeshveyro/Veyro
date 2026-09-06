@@ -1,22 +1,16 @@
-const nav = document.querySelector('.nav');
-const menu = document.querySelector('#menu');
+V// ========================================
+// SUPABASE CONFIGURATION
+// ========================================
 
-// Mobile menu toggle
-menu.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    menu.textContent = open ? '×' : '☰';
-});
+const SUPABASE_URL = "https://ptpnuquothmusvoquhdg.supabase.co";
 
-// Close menu when a navigation link is clicked
-document.querySelectorAll('.nav nav a').forEach((a) => {
-    a.addEventListener('click', () => {
-        nav.classList.remove('open');
-    });
-});
+// Use the Publishable key from Supabase → Settings → API Keys
+const SUPABASE_KEY = "sb_publishable__OCrly2Tq5dKZji3bLtvSw_w0dU2SUq";
 
-// Form submission
-const SUPABASE_URL ="https://ptpnuquothmusvoquhdg.supabase.co";
-const SUPABASE_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB0cG51cXVvdGhtdXN2b3F1aGRnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgzNjExNzYsImV4cCI6MjEwMzkzNzE3Nn0.FosTex7ZwEKAxargTx64HVy8KfJftnFhjDX5Yi8ANW4";
+
+// ========================================
+// FORM SUBMISSION
+// ========================================
 
 const form = document.querySelector("form");
 const successMessage = document.querySelector("#success");
@@ -38,18 +32,29 @@ form.addEventListener("submit", async (e) => {
             `${SUPABASE_URL}/rest/v1/waitlist`,
             {
                 method: "POST",
+
                 headers: {
                     "apikey": SUPABASE_KEY,
-                    "Authorization": `Bearer ${SUPABASE_KEY}`,
                     "Content-Type": "application/json",
                     "Prefer": "return=minimal"
                 },
+
                 body: JSON.stringify(data)
             }
         );
 
         if (!response.ok) {
-            throw new Error("Submission failed");
+            const errorText = await response.text();
+
+            console.error(
+                "Supabase error:",
+                response.status,
+                errorText
+            );
+
+            throw new Error(
+                `Supabase error ${response.status}: ${errorText}`
+            );
         }
 
         form.reset();
@@ -68,4 +73,3 @@ form.addEventListener("submit", async (e) => {
         successMessage.style.display = "block";
     }
 });
-    
