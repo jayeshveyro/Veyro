@@ -1,3 +1,4 @@
+console.log("VEYRO SCRIPT LOADED");
 const SUPABASE_URL = "https://ptpnuquothmusvoquhdg.supabase.co";
 const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";
 
