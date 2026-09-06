@@ -15,7 +15,7 @@ document.querySelectorAll('.nav nav a').forEach((a) => {
 });
 
 // Form submission
-const SUPABASE_URL ="https://ptpnuquothmusvoquhdg.supabase.co/";
+const SUPABASE_URL ="https://ptpnuquothmusvoquhdg.supabase.co";
 const SUPABASE_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB0cG51cXVvdGhtdXN2b3F1aGRnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgzNjExNzYsImV4cCI6MjEwMzkzNzE3Nn0.FosTex7ZwEKAxargTx64HVy8KfJftnFhjDX5Yi8ANW4";
 
 const form = document.querySelector("form");
