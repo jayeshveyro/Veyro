@@ -69,14 +69,6 @@ form.addEventListener("submit", async (e) => {
     }
 });
 
-    // Show success message
-    document.querySelector('#success').hidden = false;
-
-    // Update and disable submit button
-    const button = e.target.querySelector('button');
-    button.textContent = 'Request received ✓';
-    button.disabled = true;
-
     // Disable form fields
     e.target.querySelectorAll('input, select').forEach((field) => {
         field.disabled = true;
