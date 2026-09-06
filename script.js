@@ -1,6 +1,6 @@
 console.log("VEYRO SCRIPT LOADED");
 const SUPABASE_URL = "https://ptpnuquothmusvoquhdg.supabase.co";
-const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";
+const SUPABASE_KEY = "sb_publishable__OCrly2Tq5dKZji3bLtvSw_w0dU2SUq";
 
 const form = document.querySelector("#form");
 const successMessage = document.querySelector("#success");
